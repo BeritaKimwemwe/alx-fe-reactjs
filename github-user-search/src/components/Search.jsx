@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchAdvancedUsers } from '../services/github';
+import { fetchAdvancedUsers } from '../services/github'; // ✅ Correct path
 
 function Search() {
   const [username, setUsername] = useState('');
@@ -19,7 +19,7 @@ function Search() {
       const users = await fetchAdvancedUsers(username, location, minRepos);
       setResults(users);
     } catch (err) {
-      setError('Looks like we cant find the user');
+      setError('Looks like we can’t find the user');
     } finally {
       setLoading(false);
     }
@@ -49,7 +49,10 @@ function Search() {
           value={minRepos}
           onChange={(e) => setMinRepos(e.target.value)}
         />
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
           Search
         </button>
       </form>
@@ -59,12 +62,19 @@ function Search() {
       {results.length > 0 && (
         <div className="mt-6 space-y-4">
           {results.map((user) => (
-            <div key={user.id} className="p-4 border rounded shadow">
+            <div key={user.id} className="p-4 border rounded shadow flex items-center space-x-4">
               <img src={user.avatar_url} alt="avatar" className="w-16 h-16 rounded-full" />
-              <p className="font-bold">{user.login}</p>
-              <a href={user.html_url} target="_blank" rel="noreferrer" className="text-blue-600">
-                View Profile
-              </a>
+              <div>
+                <p className="font-bold">{user.login}</p>
+                <a
+                  href={user.html_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-600"
+                >
+                  View Profile
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -74,3 +84,4 @@ function Search() {
 }
 
 export default Search;
+
