@@ -1,4 +1,3 @@
-// src/components/Search.jsx
 import React, { useState } from 'react';
 import { fetchAdvancedUsers } from '../services/githubService';
 
@@ -7,13 +6,17 @@ function Search() {
   const [location, setLocation] = useState('');
   const [minRepos, setMinRepos] = useState('');
   const [results, setResults] = useState([]);
+  const [error, setError] = useState('');
 
   const handleSearch = async () => {
+    setError('');
     try {
       const users = await fetchAdvancedUsers(username, location, minRepos);
       setResults(users);
-    } catch (error) {
-      console.error('Search failed:', error);
+      if (users.length === 0) setError('Looks like we can’t find the user');
+    } catch (err) {
+      console.error('Search failed:', err);
+      setError('An error occurred. Please try again.');
     }
   };
 
@@ -42,15 +45,19 @@ function Search() {
       />
       <button onClick={handleSearch} className="bg-blue-500 text-white p-2 m-1">Search</button>
 
-      <div className="mt-4">
-        {results.map((user) => (
-          <div key={user.id} className="p-2 border-b">
-            <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-              {user.login}
-            </a>
-          </div>
-        ))}
-      </div>
+      {error && <p className="text-red-500 mt-2">{error}</p>}
+
+      {results.length > 0 && (
+        <div className="mt-4">
+          {results.map((user) => (
+            <div key={user.id} className="p-2 border-b">
+              <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                {user.login}
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

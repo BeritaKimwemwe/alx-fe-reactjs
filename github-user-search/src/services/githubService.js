@@ -1,4 +1,3 @@
-// src/services/githubService.js
 import axios from 'axios';
 
 export const fetchAdvancedUsers = async (username, location, minRepos) => {
