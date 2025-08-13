@@ -13,7 +13,7 @@ const MainContent = () => {
         color: "#111827",
       }}
     >
-      <p>Welcome to the user profile app.</p>
+      <p>I love to visit New York, Paris, and Tokyo.</p>
     </main>
   );
 };
