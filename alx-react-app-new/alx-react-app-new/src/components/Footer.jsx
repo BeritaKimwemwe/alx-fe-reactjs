@@ -13,7 +13,7 @@ const Footer = () => {
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       }}
     >
-      <p style={{ margin: 0, fontSize: "0.95rem" }}>© 2025 My React App</p>
+      <p style={{ margin: 0, fontSize: "0.95rem" }}>© 2025 UserProfile Inc.</p>
     </footer>
   );
 };
