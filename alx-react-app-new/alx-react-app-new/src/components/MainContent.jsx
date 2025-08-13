@@ -13,11 +13,7 @@ const MainContent = () => {
         color: "#111827",
       }}
     >
-      <p>
-        Welcome to the main content of the app. Here you can display dynamic
-        data, render components, or write any descriptive content that
-        highlights your app's features.
-      </p>
+      <p>Welcome to the user profile app.</p>
     </main>
   );
 };

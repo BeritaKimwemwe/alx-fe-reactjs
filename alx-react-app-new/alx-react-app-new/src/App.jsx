@@ -6,14 +6,13 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const users = [
-    { name: "Alice Johnson", age: 28, bio: "Loves traveling and exploring new cities." },
-    { name: "Bob Smith", age: 34, bio: "Enjoys photography and cultural experiences." },
-    { name: "Clara Williams", age: 25, bio: "Foodie and passionate about cooking." },
+    { name: "Alice", age: 25, bio: "Loves hiking and photography" }
   ];
 
   return (
     <div>
       <Header />
+      <MainContent />
       {users.map((user, index) => (
         <UserProfile
           key={index}
@@ -22,7 +21,6 @@ const App = () => {
           bio={user.bio}
         />
       ))}
-      <MainContent />
       <Footer />
     </div>
   );
