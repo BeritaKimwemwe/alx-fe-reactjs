@@ -1,9 +1,24 @@
-const UserProfile = (props) => {
+import React from "react";
+
+const UserProfile = ({ name, age, bio }) => {
   return (
-    <div style={{ border: '1px solid gray', padding: '10px', margin: '10px', borderRadius: '5px' }}>
-      <h2 style={{ color: 'blue', fontSize: '24px', marginBottom: '8px' }}>{props.name}</h2>
-      <p>Age: <span style={{ fontWeight: 'bold' }}>{props.age}</span></p>
-      <p>Bio: {props.bio}</p>
+    <div
+      style={{
+        border: "1px solid #ccc",
+        padding: "20px",
+        margin: "20px",
+        borderRadius: "10px",
+        backgroundColor: "#fdfdfd",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+      }}
+    >
+      <h2 style={{ color: "#1e40af", fontSize: "1.8rem", marginBottom: "10px" }}>
+        {name}
+      </h2>
+      <p style={{ marginBottom: "6px" }}>
+        Age: <span style={{ fontWeight: "bold" }}>{age}</span>
+      </p>
+      <p style={{ lineHeight: "1.5" }}>{bio}</p>
     </div>
   );
 };
