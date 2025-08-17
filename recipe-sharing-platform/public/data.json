@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Ugali",
+    "description": "A staple Kenyan dish made from maize flour.",
+    "ingredients": ["2 cups maize flour", "4 cups water"],
+    "instructions": "Boil water, gradually add maize flour while stirring until firm.",
+    "image": "https://images.unsplash.com/photo-1625940974349-8d08a67abca1"
+  },
+  {
+    "id": 2,
+    "title": "Chapati",
+    "description": "Soft layered flatbread popular in East Africa.",
+    "ingredients": ["3 cups flour", "1 tsp salt", "2 tbsp oil", "water"],
+    "instructions": "Knead dough, roll flat, cook on skillet until golden.",
+    "image": "https://images.unsplash.com/photo-1631515243553-1a1f0a8f5c6e"
+  },
+  {
+    "id": 3,
+    "title": "Sukuma Wiki",
+    "description": "Delicious collard greens sautéed with onions and tomatoes.",
+    "ingredients": ["1 bunch collard greens", "2 tomatoes", "1 onion", "oil"],
+    "instructions": "Fry onions, add tomatoes, cook greens until tender.",
+    "image": "https://images.unsplash.com/photo-1617196034537-8ff61f7eea3d"
+  }
+]
