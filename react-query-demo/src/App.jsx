@@ -1,6 +1,6 @@
 // src/App.jsx
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import PostsComponent from './PostsComponent';
+import PostsComponent from './components/PostsComponent';
 
 // Create a client instance
 const queryClient = new QueryClient();
