@@ -4,17 +4,31 @@ export default function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState({}); // plural
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      setError("All fields are required.");
-      return;
+    let newErrors = {};
+
+    if (!username) {
+      newErrors.username = "Username is required";
     }
 
-    setError("");
+    if (!email) {
+      newErrors.email = "Email is required";
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      return; // stop submission if errors exist
+    }
+
     console.log("Form Submitted:", { username, email, password });
 
     // Simulate API call
@@ -31,8 +45,6 @@ export default function RegistrationForm() {
     <form onSubmit={handleSubmit} className="p-4 border rounded max-w-md mx-auto">
       <h2 className="text-xl font-bold mb-4">Controlled Registration Form</h2>
 
-      {error && <p className="text-red-500">{error}</p>}
-
       <input
         type="text"
         placeholder="Username"
@@ -40,6 +52,7 @@ export default function RegistrationForm() {
         onChange={(e) => setUsername(e.target.value)}
         className="border p-2 w-full mb-2"
       />
+      {errors.username && <p className="text-red-500">{errors.username}</p>}
 
       <input
         type="email"
@@ -48,6 +61,7 @@ export default function RegistrationForm() {
         onChange={(e) => setEmail(e.target.value)}
         className="border p-2 w-full mb-2"
       />
+      {errors.email && <p className="text-red-500">{errors.email}</p>}
 
       <input
         type="password"
@@ -56,6 +70,7 @@ export default function RegistrationForm() {
         onChange={(e) => setPassword(e.target.value)}
         className="border p-2 w-full mb-2"
       />
+      {errors.password && <p className="text-red-500">{errors.password}</p>}
 
       <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
         Register
