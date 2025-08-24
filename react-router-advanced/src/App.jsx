@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const isAuthenticated = false; // change to true after "login"
+  const isAuthenticated = false; // simulate login
 
   return (
     <div>
